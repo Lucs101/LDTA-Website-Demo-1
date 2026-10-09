@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ldta-purple-950: #241240;
+  --color-ldta-purple-900: #2f1a55;
+  --color-ldta-purple-800: #3b1f66;
+  --color-ldta-purple-700: #4a2980;
+  --color-ldta-purple-600: #5d339e;
+  --color-ldta-purple-500: #7544b8;
+  --color-ldta-purple-100: #ece4f8;
+  --color-ldta-purple-50: #f6f2fc;
+
+  --color-ldta-gold-700: #a9760b;
+  --color-ldta-gold-600: #c8950f;
+  --color-ldta-gold-500: #e3ac1c;
+  --color-ldta-gold-400: #f3c23c;
+  --color-ldta-gold-300: #f7d166;
+  --color-ldta-gold-100: #fdf0cf;
+
+  --color-ldta-autumn-700: #b1430f;
+  --color-ldta-autumn-600: #cc5316;
+  --color-ldta-autumn-500: #e06b22;
+  --color-ldta-autumn-400: #ea8a3f;
+  --color-ldta-autumn-100: #fce7d4;
+
+  --color-ldta-cream: #fdfaf3;
+  --color-ldta-charcoal: #241f2b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ldta-charcoal);
+  background-color: var(--color-ldta-cream);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background-color: var(--color-ldta-gold-300);
+  color: var(--color-ldta-purple-900);
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 3px solid var(--color-ldta-gold-500);
+  outline-offset: 2px;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: reveal-up 0.7s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    animation: none !important;
+  }
+}
